@@ -12,29 +12,33 @@
 
 \begin{document}
 
-\centerline{\large \bf Title of Report}
+\centerline{\large \bf Identifying Precision Treatment for Rheumatoid Arthritis with Reinforcement Learning}
 
 \vspace{.1truein}
 
 \def\thefootnote{\arabic{footnote}}
 \begin{center}
-  Author 1\footnote{Department, University},
-  Author 2\footnote{Department, University},
-  Author 3\footnote{Department, University},
-  Author 4\footnote{Department, University},
-  Author 5\footnote{Department, University}
+  Chixiang Chen\footnote{Biostatistics, Pennsylvania State University},
+  Ashley Gannon\footnote{Scientific Computing, Florida State University},
+  Duwani Katumullage\footnote{Statistics, Sam Houston State University},
+  Miaoqi Li\footnote{Department, University},
+  Mengfei Liu\footnote{Department, University of Cincinnati}
+  Rebecca North\footnote{Statistics, NC State University}
+  Jialu Wang\footnote{Statistics, College of William and Mary}
 \end{center}
 
 %\vspace{.1truein}
 
 \begin{center}
-Faculty Mentors: Mentor 1\footnote{Company},
-Mentor 2\footnote{University}
+Faculty Mentors: Grant Weller, Victoria Mansfield, Yingong Guo\footnote{Savvysherpa},
+Daniel Luckett \footnote{UNC}
 \end{center}
-
 
 \vspace{.3truein}
 \centerline{\bf Abstract}
+
+
+Rheumatoid Arthritis (RA) is an autoimmune condition in which a patient's own immune system attacks the lining of joints, leading to painful swelling and aches and, eventually, long-term damage from bone erosion and joint deformity. Management of RA is challenging for today's healthcare system due to a lack of clinically validated measures of disease activity and progression, a high rate of comorbid conditions, and a proliferation of prescription drug therapies with unclear guidance on optimal therapy for a given patient. In pursuit of the identification of optimal dynamic treatment regimes for RA patients, we explore the empirical treatment regimes observed in longitudinal administrative health data on a cohort of over 6,500 RA patients and propose a framework to identify an optimal regime.
 
 \begin{itemize}
 \item Summarize the results presented in the report, and the contributions
@@ -74,6 +78,131 @@ applied normalizations).
 \end{itemize}
 
 \section{The Approach}
+
+\begin{tabular}{l|l}
+\hline
+ & member (N = 6846)\\
+\hline
+\bf{Age at First Diagnosis} & ~\\
+\hline
+~~ min & 12\\
+\hline
+~~ max & 64\\
+\hline
+~~ mean (sd) & 47.26 $\pm$ 10.99\\
+\hline
+~~ median (iqr) & 50.00 (41.00, 56.00)\\
+\hline
+\bf{Gender} & ~\\
+\hline
+~~ Male & 1,753 (26)\\
+\hline
+~~ Female & 5,093 (74)\\
+\hline
+\bf{AIDS/HIV} & ~\\
+\hline
+~~ Prior & 9 (0)\\
+\hline
+~~ After & 13 (0)\\
+\hline
+\bf{Acute Myocardial Infarction} & ~\\
+\hline
+~~ Prior & 67 (1)\\
+\hline
+~~ After & 81 (1)\\
+\hline
+\bf{Angina} & ~\\
+\hline
+~~ Prior & 409 (6)\\
+\hline
+~~ After & 417 (6)\\
+\hline
+\bf{Cancer} & ~\\
+\hline
+~~ Prior & 294 (4)\\
+\hline
+~~ After & 357 (5)\\
+\hline
+\bf{Cerebrovascular Disease} & ~\\
+\hline
+~~ Prior & 303 (4)\\
+\hline
+~~ After & 296 (4)\\
+\hline
+\bf{Congestive Heart Failure} & ~\\
+\hline
+~~ Prior & 131 (2)\\
+\hline
+~~ After & 192 (3)\\
+\hline
+\bf{COPD} & ~\\
+\hline
+~~ Prior & 1,423 (21)\\
+\hline
+~~ After & 1,296 (19)\\
+\hline
+\bf{Dementia} & ~\\
+\hline
+~~ Prior & 7 (0)\\
+\hline
+~~ After & 11 (0)\\
+\hline
+\bf{Diabetes} & ~\\
+\hline
+~~ Prior & 782 (11)\\
+\hline
+~~ After & 866 (13)\\
+\hline
+\bf{Hypertension} & ~\\
+\hline
+~~ Prior & 2,182 (32)\\
+\hline
+~~ After & 2,315 (34)\\
+\hline
+\bf{Liver Disease} & ~\\
+\hline
+~~ Prior & 433 (6)\\
+\hline
+~~ After & 557 (8)\\
+\hline
+\bf{Paralysis} & ~\\
+\hline
+~~ Prior & 34 (0)\\
+\hline
+~~ After & 32 (0)\\
+\hline
+\bf{Peripheral Vascular Disease} & ~\\
+\hline
+~~ Prior & 243 (4)\\
+\hline
+~~ After & 275 (4)\\
+\hline
+\bf{Renal Failure} & ~\\
+\hline
+~~ Prior & 90 (1)\\
+\hline
+~~ After & 192 (3)\\
+\hline
+\bf{Ulcers} & ~\\
+\hline
+~~ Prior & 119 (2)\\
+\hline
+~~ After & 97 (1)\\
+\hline
+\bf{Depression} & ~\\
+\hline
+~~ Prior & 1,276 (19)\\
+\hline
+~~ After & 1,129 (16)\\
+\hline
+\bf{Skin Ulcers} & ~\\
+\hline
+~~ Prior & 865 (13)\\
+\hline
+~~ After & 565 (8)\\
+\hline
+\end{tabular}
+
 \begin{itemize}
 \item Present and justify your approach for solving the problem. 
 \item Explain the advantages of your approach over existing ones.
