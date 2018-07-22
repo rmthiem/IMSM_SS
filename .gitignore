@@ -27,3 +27,5 @@ data/
 
 # plots directory
 plots/
+
+*.svg
