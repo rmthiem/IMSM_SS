@@ -395,11 +395,69 @@ We further clean the data for this section by eliminating uncommon treatmentIDs.
 
 \subsubsection{Model Selection}
 
-To find a $\hat{f}(x,a)$ fit for our data set, we use to methods: Random forest and logistic regression. The random forest algorithm is implemented using the random forest package in R. The logistic regression algorithm is implemented using GLM in R. From these two methods, we examine the top five covariates and determine which covariates, $X$, to use in the approach.
+To find a $\hat{f}(x,a)$ fit for our data set, we use to methods: Random forest and logistic regression. The random forest algorithm is implemented using the random forest package in R. The logistic regression algorithm is implemented using GLM in R. From these two methods, we examine the top covariates and determine which covariates, $X$, to use in the approach.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l}
+		\textbf{Random Forest} & \textbf{Logistic Regression} \\
+		\hline
+		Age at diagnosis & Gender \\
+		\hline
+		Treatment group for month 1 & Acute myocardial infarction \\
+		\hline
+		COPD & Hypertension \\
+		\hline
+		Subscriber & Angina \\
+		\hline
+		Gender & Paralysis \\
+		\hline
+		Hypertension & Skin \\
+		\hline
+		~ & Renal failure \\
+		\hline
+		~ & Peripheral vascular disease \\
+		\hline
+		~ & Treatment group for month 1 \\
+		\hline
+	\end{tabular}
+	\caption{Covariates produced by Random Forest and logistic regression models}
+\end{table}
+
+In the logistic regression model, we notice the presence of covariates that rarely occur ($<5$\%) in the observed population, see Table \ref{rates}. We do not consider these covariates in our approach.  
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|c}
+		\textbf{Covariate} &\textbf{Percent of Occurrence in Dataset} \\
+		\hline
+		Acute myocardial infarction & 1\% \\
+		\hline
+		Hypertension & 34\% \\
+		\hline
+		Angina & 6\% \\
+		\hline
+		Paralysis & 1\% \\
+		\hline
+		Skin ulcers & 14\% \\
+		\hline
+		Renal failure & 1\% \\
+		\hline
+		Peripheral vascular disease & 1\% \\
+		\hline
+	\end{tabular}
+	\caption{Occurrence of covariates in two month data set}
+	\label{rates}
+\end{table}
+
+We also notice the subscriber index is 
 
 \subsection{A Two Decision, Three Month Model}
 
 
+		%\textbf{Random Forest} & \textbf{Logistic Regression} \\
+%Glucocorticoid or painkiller in month 1 & Treatment group in month 2 \\
+%Age at diagnosis &  Glucocorticoid or painkiller in month 1 \\
 
 
 \section{Computational Results}
